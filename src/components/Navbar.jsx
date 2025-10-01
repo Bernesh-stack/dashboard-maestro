@@ -9,7 +9,7 @@ import avatar from '../data/avatar.jpg';
 import {Cart ,Chat,Notification,UserProfile} from "."
 import { useStateContext } from '../contexts/ContextProvider'
 const Navbar = () => {
-  const {activeMenu,setActiveMenu,isClicked,setIsClicked,handleClick,screenSize,setScreenSize}=useStateContext();
+  const {activeMenu,setActiveMenu,isClicked,setIsClicked,handleClick,screenSize,setScreenSize,currentColor}=useStateContext();
   // const handleClick=(value)=>{
   //   if(value==='cart'){
       
@@ -52,9 +52,9 @@ const Navbar = () => {
     <div className='flex justify-between p-2 md:mx-6 relative'>
         <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu )} color="blue" icon={<AiOutlineMenu/>}/>
         <div className='flex '>
-                    <NavButton title="Cart" customFunc={() => handleClick('cart')} color="blue" icon={<FiShoppingCart/>}/>
-                    <NavButton title="Chat" dotColor="#03C9D7" customFunc={() => handleClick('chat')} color="blue" icon={<BsChatLeft/>}/>
-                    <NavButton title="Notification" dotColor="#03C9D7" customFunc={() => handleClick('notification')} color="blue" icon={<RiNotification3Line/>}/>
+                    <NavButton title="Cart" customFunc={() => handleClick('cart')} color={currentColor} icon={<FiShoppingCart/>}/>
+                    <NavButton title="Chat" dotColor="#03C9D7" customFunc={() => handleClick('chat')} color={currentColor} icon={<BsChatLeft/>}/>
+                    <NavButton title="Notification" dotColor="#03C9D7" customFunc={() => handleClick('notification')} color={currentColor} icon={<RiNotification3Line/>}/>
                     <TooltipComponent content="profile" position='BottomCenter'>
                       <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={()=> handleClick('userProfile')}>
                               <img src={avatar} alt="user-image" className='rounded-full w-8 h-8 ' />

@@ -5,6 +5,7 @@ import {Stacked,Pie,Button,SparkLine} from "../components";
 import { earningData,SparklineAreaData,ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 const Ecommerce = () => {
+  const {currentColor}=useStateContext();
   return (
     <div className='
     mt-12 '> 
@@ -17,7 +18,7 @@ const Ecommerce = () => {
                 </div>
           </div>
           <div className='mt-6'>
-                <Button color="white" bgColor="blue" text="Download" borderRadius="10px" size="md">
+                <Button color="white" bgColor={currentColor} text="Download" borderRadius="10px" size="md">
 
                 </Button>
           </div>
@@ -100,18 +101,18 @@ const Ecommerce = () => {
 
 <div className='border-r-1 border-color m-4 pr-10 min-w-[250px] min-h-[80px]'>
 <SparkLine 
-  currentColor="blue" 
+  currentColor={currentColor} 
   id="line-sparkLine" 
   type="Line" 
   height="80px" 
   width="250px" 
   data={SparklineAreaData} 
-  color="blue" 
+  color={currentColor}
 />
 
             </div>
             <div className='mt-10'>
-              <Button color="white" bgColor="blue" text="Download" borderRadius="10px" >
+              <Button color="white" bgColor={currentColor} text="Download" borderRadius="10px" >
 
               </Button>
 
